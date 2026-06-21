@@ -39,7 +39,7 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}/{name}")
-    public String getStudentById(@PathVariable Long Id,@PathVariable String name)
+    public String getStudentById(@PathVariable("id") Long Id,@PathVariable String name)
     {
         return "Path variable"+Id + "name is:"+name;
     }
