@@ -1,0 +1,25 @@
+services:
+
+  postgres:
+    image: postgres:16
+
+    container_name: postgres
+
+    environment:
+      POSTGRES_DB: studentdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+  student-api:
+    build: .
+
+    container_name: student-api
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - postgres
