@@ -2,19 +2,10 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Checkout') {
+        stage('Check Docker') {
             steps {
-                echo 'Downloading code from GitHub'
+                sh 'docker --version'
             }
         }
-
-        stage('Build') {
-            steps {
-                sh 'chmod +x mvnw'
-                sh './mvnw clean package -DskipTests'
-            }
-        }
-
     }
 }
